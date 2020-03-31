@@ -27,8 +27,11 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+function getFizzBuzz(n) {
+  if (!(n % 15)) { return 'FizzBuzz'; }
+  if (!(n % 3)) { return 'Fizz'; }
+  if (!(n % 5)) { return 'Buzz'; }
+  return n;
 }
 
 
@@ -43,8 +46,10 @@ function getFizzBuzz(/* num */) {
  *   5  => 120
  *   10 => 3628800
  */
-function getFactorial(/* n */) {
-  throw new Error('Not implemented');
+function getFactorial(n) {
+  if (n < 0 || n > 12) { throw RangeError; }
+  if (n === 0 || n === 1) { return 1; }
+  return getFactorial(n - 1) * n;
 }
 
 
@@ -60,8 +65,9 @@ function getFactorial(/* n */) {
  *   5,10  =>  45 ( = 5+6+7+8+9+10 )
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
-function getSumBetweenNumbers(/* n1, n2 */) {
-  throw new Error('Not implemented');
+function getSumBetweenNumbers(n1, n2) {
+  if (n1 === n2) { return n1; }
+  return n1 + getSumBetweenNumbers(n1 + 1, n2);
 }
 
 
@@ -80,8 +86,8 @@ function getSumBetweenNumbers(/* n1, n2 */) {
  *   10,1,1   =>  false
  *   10,10,10 =>  true
  */
-function isTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isTriangle(a, b, c) {
+  return (a + b > c) && (a + c > b) && (b + c > a);
 }
 
 
@@ -117,8 +123,10 @@ function isTriangle(/* a, b, c */) {
  *   { top:20, left:20, width: 20, height: 20 }    =>  false
  *
  */
-function doRectanglesOverlap(/* rect1, rect2 */) {
-  throw new Error('Not implemented');
+function doRectanglesOverlap(r1, r2) {
+  if ((r1.top + r1.height < r2.top) || (r2.top + r2.height < r1.top)) { return false; }
+  if ((r1.left + r1.width < r2.left) || (r2.left + r2.width < r1.left)) { return false; }
+  return true;
 }
 
 
@@ -148,8 +156,8 @@ function doRectanglesOverlap(/* rect1, rect2 */) {
  *   { center: { x:0, y:0 }, radius:10 },  { x:10, y:10 }   => false
  *
  */
-function isInsideCircle(/* circle, point */) {
-  throw new Error('Not implemented');
+function isInsideCircle(c, p) {
+  return c.radius > Math.sqrt((c.center.x - p.x) ** 2 + (c.center.y - p.y) ** 2);
 }
 
 
